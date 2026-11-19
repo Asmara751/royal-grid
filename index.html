@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Royal Grid – Queens Logic Puzzle</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+
+<section id="home" class="screen">
+  <div class="logo">♛</div>
+  <h1>Royal Grid</h1>
+  <p class="tag">A queens logic puzzle</p>
+  <div class="menu">
+    <button class="primary" id="play">Play</button>
+    <button data-go="levels">Levels</button>
+    <button data-go="how">How to play</button>
+    <button data-go="stats">Stats</button>
+    <button data-go="settings">Settings</button>
+  </div>
+</section>
+
+<section id="levels" class="screen">
+  <header><button class="back" data-go="home">← Home</button><h2>Levels</h2></header>
+  <p class="sub">Solve a level to unlock the next one.</p>
+  <div id="levelGrid" class="levels"></div>
+</section>
+
+<section id="game" class="screen">
+  <header><button class="back" data-go="levels">← Levels</button><h2 id="gTitle"></h2></header>
+  <div class="stats">
+    <div><b id="time">0:00</b><span>Time</span></div>
+    <div><b id="hints">0</b><span>Hints</span></div>
+    <div><b id="gBest">–</b><span>Best</span></div>
+  </div>
+  <div id="board" class="board"></div>
+  <div class="row"><button id="undo">Undo</button><button id="hint">Hint</button><button id="reset">Reset</button></div>
+</section>
+
+<section id="how" class="screen">
+  <header><button class="back" data-go="home">← Home</button><h2>How to play</h2></header>
+  <ol class="rules">
+    <li>Place exactly <b>one queen in every row</b>.</li>
+    <li>Place exactly <b>one queen in every column</b>.</li>
+    <li>Place exactly <b>one queen in every color region</b>.</li>
+    <li>Queens <b>can’t touch</b>, not even diagonally.</li>
+  </ol>
+  <p class="sub"><b>Tap</b> a cell once for × (a spot where no queen can go), twice for a queen, three times to clear it. Queens that break a rule get a red border.</p>
+  <p class="sub"><b>Stars:</b> 3 for a fast solve with no hints, 2 for a slower or one-hint solve, 1 for finishing.</p>
+</section>
+
+<section id="stats" class="screen">
+  <header><button class="back" data-go="home">← Home</button><h2>Stats</h2></header>
+  <div id="statsBody"></div>
+</section>
+
+<section id="settings" class="screen">
+  <header><button class="back" data-go="home">← Home</button><h2>Settings</h2></header>
+  <label class="opt"><span>Dark mode</span><input type="checkbox" id="optDark"></label>
+  <label class="opt"><span>Auto-mark × when placing a queen</span><input type="checkbox" id="optAuto"></label>
+  <label class="opt"><span>Sound effects</span><input type="checkbox" id="optSound"></label>
+  <button class="danger" id="wipe">Reset all progress</button>
+</section>
+
+</main>
+
+<div id="modal" class="modal" hidden>
+  <div class="card">
+    <h2>Level solved!</h2>
+    <div id="mStars" class="stars"></div>
+    <p id="mText"></p>
+    <div class="menu">
+      <button class="primary" id="mNext">Next level</button>
+      <button id="mAgain">Play again</button>
+      <button data-go="levels">All levels</button>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
